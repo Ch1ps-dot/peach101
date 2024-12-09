@@ -14,5 +14,5 @@ markdown_extensions:
 
 # content
 nav:
-  - Peach入门: Peach入门.md
-  - test: test.md
+  - Peach简介: index.md
+  - Peach实战: test.md
