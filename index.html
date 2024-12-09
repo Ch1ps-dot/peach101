@@ -371,6 +371,34 @@
 <p>Peach项目开始于2004年，2013年之后就不再维护开源版本了。由于年久失修，它所依赖的许多软件包都有很大的变动，如果想要从源码编译Peach会碰到很多障碍，所幸作者提供了编译好的二进制版本（即使是这样，如果在Linux上运行还是会有很多问题）。</p>
 </div>
 <h2 id="peach_1">Peach的程序架构</h2>
+<p>Peach主要由六个部分构成：</p>
+<ul>
+<li><strong>Model</strong>：用于描述模糊测试操作的数据模型和状态模型。</li>
+<li><strong>Publisher</strong>：I/O接口，Peach提供了多种I/O方式，可以通过标准输入输出进行，也可以通过文件、TCP、UDP等方式进行数据传输。</li>
+<li><strong>Mutators</strong>：用于生成测试数据，可以根据默认值生成，也可以根据给定范围生成。</li>
+<li><strong>Monitors</strong>：调用目标程序，监视目标程序执行情况，并进行一些操作。可以是流量抓包、检测崩溃的debugger，甚至可以在程序崩溃时重新拉起目标程序。</li>
+<li><strong>Agents</strong>：在本地或者远程运行的特殊Peach进程，主导了一些Monitor和远程Publisher的运行。</li>
+<li><strong>Logger</strong>：记录目标程序的运行时信息。</li>
+</ul>
+<p>Peach的工作流程就围绕这些组件进行，当我们想要测试一个目标时，需要遵循如下步骤：</p>
+<ol>
+<li>根据测试创建合适的数据模型和状态模型</li>
+<li>挑选和配置Publisher（就是设置合适的I/O接口）</li>
+<li>配置Agents/Monitors（设置被测试的目标程序和进程监视器）</li>
+<li>配置Logger</li>
+</ol>
+<p><strong>实际上，这些步骤都是通过编写Pit文件实现的。</strong></p>
+<p>在编写好Pit文件后，我们就可以直接通过让Peach解析Pit文件并进行相应的模糊测试操作。除此之外Peach还提供了一些额外功能，可以通过参数指定。</p>
+<div class="highlight"><pre><span></span><code>-1：执行第1次测试。
+-a：启动Peach代理。不指定”channel”默认为本地代理（默认支持，无需显式启动）；“channel”可以指定为”tcp”远程代理。
+-c：统计测试用例数。
+-t：验证Peach<span class="w"> </span>Pit<span class="w"> </span>xml文件正确性。
+-p：并行Fuzz。运行Peach的机器总数为M，这是第N个。
+–debug：调试信息开关。
+–skipto：指定Fuzz跳过的测试用例数。
+–range：指定Fuzz的测试用例范围
+-h：输出帮助菜单
+</code></pre></div>
 <h2 id="pit">Pit文件</h2>
 
 
