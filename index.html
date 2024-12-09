@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#peach101" class="md-skip">
           跳转至
         </a>
       
@@ -235,9 +235,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      基于生成的协议模糊测试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peachpit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peach和Pit
     </span>
   </a>
   
@@ -307,9 +316,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      基于生成的协议模糊测试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peachpit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peach和Pit
     </span>
   </a>
   
@@ -339,21 +357,17 @@
                   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
+<h1 id="peach101">Peach101</h1>
+<h2 id="_1">基于生成的协议模糊测试</h2>
+<p><a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">模糊测试</a>旨在通过给程序提供大量预期之外的输入来试图触发程序的异常行为。根据用于测试软件的程序输入是通过修改已有数据，还是根据一些约束和规范凭空生成得来，模糊测试可以分为基于变异和基于生成两大类别。在针对协议实现软件的模糊测试中，由于协议实现需要遵守协议<strong>报文规范</strong>和协议<strong>语义规范</strong>（也成为协议状态机），所以有很多工作采用了基于生成的测试用例生成策略。</p>
+<blockquote>
+<p>模糊测试中的模糊一词来源于英语单词Fuzz，最早出自模糊测试领域的开山之作<a href="https://dl.acm.org/doi/10.1145/96267.96279">《An empirical study of the reliability of UNIX utilities》</a>，文中设计了一个可以用于生成随机输入的程序Fuzz。Fuzz原意指的是兔毛，模糊测试领域另一著名工具AFL的英文全称也正是美洲长毛兔。细碎的兔毛和大量随机的测试用例确实是有异曲同工之妙。但为了避免直译成兔毛测试，Fuzz就有了一个并不那么形象的中文名——<strong>模糊测试</strong>。</p>
+</blockquote>
+<p><a href="https://peachtech.gitlab.io/peach-fuzzer-community/">Peach</a>是一个可以用于测试协议软件的模糊测试器。和基于变异的模糊测试器不同，Peach加入了基于生成的样例生成策略，它可以根据给定的模板生成符合要求的测试样例（即用于协议通信的报文）。
+Peach所用的规范描述模板被称为<strong>Pit</strong>，它是一套利用XML实现的，用于规定Peach在执行模糊测试时需要遵守的各种协议报文规范和协议语义规范的描述语言。我们以利用Peach执行协议模糊测试过程为例子，来对描述协议的语法规范和语义规范进行初步的了解。</p>
+<h2 id="peachpit">Peach和Pit</h2>
+<p>模糊测试器Peach可以在多个平台上部署</p>
 <h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
 
 
 
