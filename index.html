@@ -363,9 +363,9 @@
 <blockquote>
 <p>模糊测试中的模糊一词来源于英语单词Fuzz，最早出自模糊测试领域的开山之作<a href="https://dl.acm.org/doi/10.1145/96267.96279">《An empirical study of the reliability of UNIX utilities》</a>，文中设计了一个可以用于生成随机输入的程序Fuzz。Fuzz原意指的是兔毛，模糊测试领域另一著名工具AFL的英文全称也正是美洲长毛兔。细碎的兔毛和大量随机的测试用例确实是有异曲同工之妙。但为了避免直译成兔毛测试，Fuzz就有了一个并不那么形象的中文名——<strong>模糊测试</strong>。</p>
 </blockquote>
-<p><a href="https://peachtech.gitlab.io/peach-fuzzer-community/">Peach</a>是一个可以用于测试协议软件的模糊测试器。Peach通过C#编写，借助Mono项目可以直接运行在Windows、Linux等多种平台上。和基于变异的模糊测试器不同，Peach加入了基于生成的样例生成策略，它可以根据给定的模板生成符合要求的测试样例（即用于协议通信的报文）。
-Peach所用的规范描述模板被称为<strong>Pit</strong>，它是一套利用XML实现的，用于规定Peach在执行模糊测试时需要遵守的各种协议报文规范和协议语义规范的描述语言。Pit 文件还定义了测试过程中的I/O方式（Publisher）、程序运行监视器（Monitor和Agent）以及用例变异方式（Mutator）。
-我们以利用Peach执行协议模糊测试过程为例子，来对描述协议的语法规范和语义规范进行初步的了解。</p>
+<p><a href="https://peachtech.gitlab.io/peach-fuzzer-community/">Peach</a>是一个可以用于测试协议软件的模糊测试器。Peach通过C#编写，借助Mono项目可以直接运行在Windows、Linux等多种平台上。和基于变异的模糊测试器不同，Peach加入了基于生成的样例生成策略，它可以根据给定的模板生成符合要求的测试样例（即用于协议通信的报文）。</p>
+<p>Peach所用的规范描述模板被称为<strong>Pit</strong>，它是一套利用XML实现的，用于规定Peach在执行模糊测试时需要遵守的各种协议报文规范和协议语义规范的描述语言。Pit 文件还定义了测试过程中的I/O方式（Publisher）、程序运行监视器（Monitor和Agent）以及用例变异方式（Mutator）。</p>
+<p>我们以利用Peach执行协议模糊测试过程为例子，来对描述协议的语法规范和语义规范进行初步的了解。  </p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Peach项目开始于2004年，2013年之后就不再维护开源版本了。由于年久失修，它所依赖的许多软件包都有很大的变动，如果想要从源码编译Peach会碰到很多障碍，所幸作者提供了编译好的二进制版本（即使是这样，如果在Linux上运行还是会有很多问题）。</p>
