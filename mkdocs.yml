@@ -1,0 +1,18 @@
+# site configuration
+site_name: Peach101
+
+# theme configuration
+theme:
+  name: material
+  language: zh
+
+# extention configuration
+markdown_extentions:
+  - admonition # message block
+  - pymdownx.details # as above
+  - pymdownx.superfences # as above
+
+# content
+nav:
+  - index: index.md
+  - test: test.md
