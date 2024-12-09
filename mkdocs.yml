@@ -7,12 +7,12 @@ theme:
   language: zh
 
 # extention configuration
-markdown_extentions:
+markdown_extensions:
   - admonition # message block
   - pymdownx.details # as above
   - pymdownx.superfences # as above
 
 # content
 nav:
-  - index: index.md
+  - Peach入门: Peach入门.md
   - test: test.md
