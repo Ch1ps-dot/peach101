@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Peach简介
+              协议模糊测试和协议规范描述方法
             
           </span>
         </div>
@@ -202,7 +202,7 @@
           
   
   <span class="md-ellipsis">
-    Peach简介
+    协议模糊测试和协议规范描述方法
   </span>
   
 
@@ -213,7 +213,7 @@
         
   
   <span class="md-ellipsis">
-    Peach简介
+    协议模糊测试和协议规范描述方法
   </span>
   
 
@@ -237,7 +237,7 @@
         <li class="md-nav__item">
   <a href="#peach" class="md-nav__link">
     <span class="md-ellipsis">
-      模糊测试器Peach
+      Peach简介
     </span>
   </a>
   
@@ -318,7 +318,7 @@
         <li class="md-nav__item">
   <a href="#peach" class="md-nav__link">
     <span class="md-ellipsis">
-      模糊测试器Peach
+      Peach简介
     </span>
   </a>
   
@@ -358,7 +358,7 @@
 
 
 <h1 id="peach101">Peach101</h1>
-<h2 id="peach">模糊测试器Peach</h2>
+<h2 id="peach">Peach简介</h2>
 <p><a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">模糊测试</a>旨在通过给程序提供大量预期之外的输入来试图触发程序的异常行为。根据用于测试软件的程序输入是通过修改已有数据，还是根据一些约束和规范凭空生成得来，模糊测试可以分为基于变异和基于生成两大类别。在针对协议实现软件的模糊测试中，由于协议实现需要遵守协议<strong>报文规范</strong>和协议<strong>语义规范</strong>（也成为协议状态机），所以有很多工作采用了基于生成的测试用例生成策略。</p>
 <blockquote>
 <p>模糊测试中的模糊一词来源于英语单词Fuzz，最早出自模糊测试领域的开山之作<a href="https://dl.acm.org/doi/10.1145/96267.96279">《An empirical study of the reliability of UNIX utilities》</a>，文中设计了一个可以用于生成随机输入的程序Fuzz。Fuzz原意指的是兔毛，模糊测试领域另一著名工具AFL的英文全称也正是美洲长毛兔。细碎的兔毛和大量随机的测试用例确实是有异曲同工之妙。但为了避免直译成兔毛测试，Fuzz就有了一个并不那么形象的中文名——<strong>模糊测试</strong>。</p>
@@ -388,7 +388,7 @@
 <li>配置Logger</li>
 </ol>
 <p><strong>实际上，这些步骤都是通过编写Pit文件实现的。</strong></p>
-<p>在编写好Pit文件后，我们就可以直接通过让Peach解析Pit文件并进行相应的模糊测试操作。除此之外Peach还提供了一些额外功能，可以通过参数指定。</p>
+<p>在编写好Pit文件后，我们就可以直接让Peach解析Pit文件并进行相应的模糊测试操作。除此之外Peach还提供了一些额外功能，可以通过参数指定。</p>
 <div class="highlight"><pre><span></span><code>-1：执行第1次测试。
 -a：启动Peach代理。不指定”channel”默认为本地代理（默认支持，无需显式启动）；“channel”可以指定为”tcp”远程代理。
 -c：统计测试用例数。
