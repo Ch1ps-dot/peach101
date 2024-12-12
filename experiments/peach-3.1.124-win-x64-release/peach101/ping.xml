@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Peach xmlns="http://peachfuzzer.com/2012/Peach" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://peachfuzzer.com/2012/Peach ../peach.xsd">
+
+    <DataModel name="TheDataModel">
+		<String value="ping" />
+	</DataModel>
+
+    <StateModel name="State" initialState="State1" >
+		<State name="State1"  >
+			<Action type="output" >
+				<DataModel ref="TheDataModel"/>
+			</Action>
+		</State>
+	</StateModel>
+
+    <Agent name="Local">
+        <Monitor class="RunCommand">
+            <Param name="Command" value="python"/>
+            <Param name="Arguments" value=".\monitor.py" />
+            <Param name="FaultOnNonZeroExit" value="true" />
+            <Param name="When" value="OnIterationEnd" />
+        </Monitor>
+    </Agent>
+
+
+    <Test name="Default">
+        <Agent ref="Local" />
+		<StateModel ref="State"/>
+		<Publisher class="TcpClient">
+            <Param name="Host" value="127.0.0.1" />
+            <Param name="Port" value="12345" /> 
+        </Publisher>
+        <Logger class="Filesystem">
+            <Param name="Path" value=".\logs" />
+        </Logger>
+	</Test>
+
+</Peach>

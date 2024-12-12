@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Peach.Core.Test</name>
+    </assembly>
+    <members>
+        <member name="M:Peach.Bits.Fmt(System.String,System.Object[])">
+            <summary>
+            Formats a BitStream according to the format string. Supported
+            arguments are byte[], numbers and strings.
+            
+            Valid formatting options are:
+            
+            byte[] - none
+            string - ascii,utf16,utf16be,utf8,utf7,utf32 (defaults is ascii)
+            numers - [L,B][bitlen]
+            
+            If no formatting options are given, defaults to little endian
+            and the size of the argument.
+            </summary>
+            <param name="fmt">Format string</param>
+            <param name="args">Objects to format</param>
+            <returns></returns>
+        </member>
+        <member name="M:Peach.Core.Test.CrackingTests.ArrayTests.CrackArrayStopAtMax">
+            <summary>
+            We should stop cracking at maxOccurs.  Question, should we throw an exception or just
+            stop?
+            </summary>
+        </member>
+        <member name="T:Peach.Core.Test.Monitors.FaultingMonitor">
+            <summary>
+            Faults on iterations in the 'Iteration' parameter.
+            Reproduces faults on iterations in the 'Repro' parameter.
+            If Iteration is omitted, faults on all non-control iterations.
+            If Repro is omitted, reproduces all faults.
+            If 'C' is in the 'Iteration' parameter, faults on a control iteration.
+            If 'Iteration' parameter is '0', no faults will occur.
+            If 'Repro' parameter is '0', no faults will reproduce.
+            </summary>
+        </member>
+        <member name="M:Peach.Core.Test.ReportedTests.ObjectCopierExplode">
+            <summary>
+            From Sirus.
+            </summary>
+            <remarks>
+            input data attached.   For some reason stalls in the ObjectCopier clone method 
+            trying to deserialze a 120 megabyte (!) memory stream of a Dom.Number... Wonder 
+            what the heck the serializer is doing..
+            </remarks>
+        </member>
+        <member name="M:Peach.Core.Test.ReportedTests.CrackExplode">
+            <summary>
+            Reported by Sirus
+            </summary>
+        </member>
+        <member name="M:Peach.Core.Test.ReportedTests.CrackNoExplode">
+            <summary>
+            Proper data bytes for model of CrackExplode
+            </summary>
+        </member>
+        <member name="M:Peach.Core.Test.ReportedTests.CrackExplode2">
+            <summary>
+            Reported by Sirus
+            </summary>
+        </member>
+    </members>
+</doc>
