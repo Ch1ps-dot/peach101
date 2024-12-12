@@ -319,6 +319,81 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pit文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datamodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      StateModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结语
+    </span>
+  </a>
+  
 </li>
       
     </ul>
@@ -400,6 +475,81 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Pit文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datamodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      StateModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      结语
+    </span>
+  </a>
+  
 </li>
       
     </ul>
@@ -453,7 +603,8 @@
 <p><strong>实际上，这些步骤都是通过编写Pit文件实现的。</strong></p>
 <p>在编写好Pit文件后，我们就可以直接让Peach解析Pit文件并进行相应的模糊测试操作。除此之外Peach还提供了一些额外功能，可以通过参数指定。</p>
 <div class="highlight"><pre><span></span><code>-1：执行第1次测试。
--a：启动Peach代理。不指定”channel”默认为本地代理（默认支持，无需显式启动）；“channel”可以指定为”tcp”远程代理。
+-a：启动Peach代理。不指定”channel”默认为本地代理（默认支持，无需显式启动）；
+<span class="w">    </span>“channel”可以指定为”tcp”远程代理。
 -c：统计测试用例数。
 -t：验证Peach<span class="w"> </span>Pit<span class="w"> </span>xml文件正确性。
 -p：并行Fuzz。运行Peach的机器总数为M，这是第N个。
@@ -463,6 +614,115 @@
 -h：输出帮助菜单
 </code></pre></div>
 <h2 id="pit">Pit文件</h2>
+<p>Pit文件本质上是一个<a href="https://www.runoob.com/xml/xml-intro.html">XML</a>文件。它利用了XML可以自定义标签的特性，在此基础之上拓展出了用于描述Peach所需信息的Pit文件。接下来我们对Pit文件进行粗略的介绍，详细的内容可以查阅<a href="https://peachtech.gitlab.io/peach-fuzzer-community/v3/PeachPit.html">官方文档</a>。Pit文件中包含了如下信息：</p>
+<ol>
+<li>通用设置</li>
+<li>DataModel</li>
+<li>StateModel</li>
+<li>Agents和Monitors（可选）</li>
+<li>测试设置</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在阅读以下内容之前请确保对XML文件的组成有基本的了解。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><strong>XML速成</strong>：XML是一种可拓展标记语言，它的基本功能就在于标记。XML文件由元素组成，每个元素都是由标签标记（类似于HTML），每个元素都可以有很多属性，元素之间可以相互嵌套。XML本质上是对数据的标记，如何处理这些数据需要由程序自己决定。Pit文件规范就是Peach自定义的针对XML文件的解析处理方法。</p>
+</div>
+<p>Pit文件的基本框架结构如下，其中包含了根节点\<Peach>\</Peach>和它的三个子元素\<DataModel>\</DataModel>，\<StateModel>\</StateModel>，\<Agent>\</Agent>和\<Test>\</Test>。Peach节点指明了该文件为Pit脚本，是每个Pit脚本中必须包含的元素。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;Peach</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://peachfuzzer.com/2012/Peach&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://peachfuzzer.com/2012/Peach ../peach.xsd&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TheDataModel&quot;</span><span class="nt">&gt;&lt;/DataModel&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;StateModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;State&quot;</span><span class="w"> </span><span class="na">initialState=</span><span class="s">&quot;State1&quot;</span><span class="w"> </span><span class="nt">&gt;&lt;/StateModel&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Agent</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Local&quot;</span><span class="nt">&gt;&lt;/Agent&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;Test</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Default&quot;</span><span class="nt">&gt;&lt;/Test&gt;</span>
+
+<span class="nt">&lt;/Peach&gt;</span>
+</code></pre></div>
+<h3 id="datamodel">DataModel</h3>
+<p>Pit文件中至少应该包含一个DataModel元素，它描述了数据的类型信息、关系信息和模糊测试器应采用的变异操作，DataModel之间可以相互引用。</p>
+<p>DataModel可以设置属性，用来指明对该元素的属性信息，这样的属性包括指明元素名称的<strong>name</strong>（必须有），用于引用的<strong>ref</strong>（可选），表示数据是否可以变异的<strong>mutable</strong>（可选），检测合法性的<strong>constraint</strong>（可选）。</p>
+<p>在DataModel中还可以设置多种子元素，用来表示不同的数据，我们以最简单的String为例，它表示该元素是一个字符串类型的数据，其属性Value表示的就是字符串的实际值，下面的DataModel元素表示的就是一个"Hello World!"字符串。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TheDataModel&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;String</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/DataModel&gt;</span>
+</code></pre></div>
+<h3 id="statemodel">StateModel</h3>
+<p>StateModel表示的是测试过程中的状态模型，它规定了Peach和测试目标之间是如何交换数据的。每个StateModel都有一个或多个State组成，每个State由一个或多个Action组成。StateModel中的子元素State对Action起封装作用，而Action表示Peach应该执行的操作，这些操作按照Action分布的顺序从上到下执行。在Action元素中可以引用先前定义好的DataModel。</p>
+<p>下图展示了一个通过网络进行模糊测试的例子。</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nt">&lt;StateModel</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TheStateModel&quot;</span><span class="w"> </span><span class="na">initialState=</span><span class="s">&quot;InitialState&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;State</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;InitialState&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">                </span><span class="cm">&lt;!-- Send data --&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;output&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;PacketModel1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/Action&gt;</span>
+
+<span class="w">                </span><span class="cm">&lt;!-- Receive response --&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;input&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;PacketModel2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/Action&gt;</span>
+
+<span class="w">                </span><span class="cm">&lt;!-- Send data --&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;output&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;PacketModel3&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/Action&gt;</span>
+
+<span class="w">                </span><span class="cm">&lt;!-- Receive response --&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Action</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;input&quot;</span><span class="nt">&gt;</span>
+<span class="w">                        </span><span class="nt">&lt;DataModel</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;PacketModel4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/Action&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/State&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/StateModel&gt;</span>
+</code></pre></div>
+<h3 id="agent">Agent</h3>
+<p>Agent是一个可选的元素，被用来在本地或者远程配置Monitor。Peach提供了多种可选Monitor用于收集信息和执行特殊操作。比如下面就设计了一个本地运行的Agent，它用来执行一命令。命令的内容是调用一个Python脚本，在每次测试循环后监听目标程序的执行情况，当程序异常退出时告知Peach。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Agent</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Local&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Monitor</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;RunCommand&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Command&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;python&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Arguments&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;.\monitor.py&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;FaultOnNonZeroExit&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;When&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;OnIterationEnd&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Monitor&gt;</span>
+<span class="nt">&lt;/Agent&gt;</span>
+</code></pre></div>
+<h3 id="test">Test</h3>
+<p>Test元素被用于配置模糊测试，它相当于定义了一次模糊测试的过程。Test中的子元素包含了先前定义的StateModel（必需），Publisher（必需），Agents（可选），Logger和模糊测试策略。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Test</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Default&quot;</span><span class="nt">&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 可选的Agent设置 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Agent</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;Local&quot;</span><span class="w"> </span><span class="na">platform=</span><span class="s">&quot;windows&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 指定StateModel(必需) --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;StateModel</span><span class="w"> </span><span class="na">ref=</span><span class="s">&quot;TheState&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 指定将要使用的Publisher(必需) --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Publisher</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;Tcp&quot;</span><span class="nt">&gt;</span>
+<span class="w">     </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Host&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">     </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Port&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;9001&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/Publisher&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 指定变异策略 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Strategy</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;Random&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- 指明存储日志的文件夹 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;Logger</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;File&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Path&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/Logger&gt;</span>
+<span class="nt">&lt;/Test&gt;</span>
+</code></pre></div>
+<h4 id="publisher">Publisher</h4>
+<p>Publisher定义了Peach用来发送和接收数据的I/O接口。所有模糊测试过程都需要一个Publisher，不同的Publiser可以用于执行不同的操作动作。例如和文件相关的Publisher可以执行读取和输出文件的操作。和网络通信有关的Publisher可以用来指定IP和端口。</p>
+<h4 id="logger">Logger</h4>
+<p>Logger是Peach中可拓展的日志模块，一般用来指定一个文件夹存储模糊测试过程中的日志信息。</p>
+<h2 id="_1">结语</h2>
+<p>上述内容主要是对Peach中Pit文件的基本架构进行一个简单的介绍，已经可以用于构建我们的状态机描述实验了。Pit文件还有很多可供拓展的设置，可以根据自己的需要描述相当复杂的文档结构。感兴趣的同学可以通过<a href="https://peachtech.gitlab.io/peach-fuzzer-community/WhatIsPeach.html">官方文档</a>自行探索。</p>
 
 
 
