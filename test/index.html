@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ro-be-continued" class="md-skip">
+        <a href="#peach" class="md-skip">
           跳转至
         </a>
       
@@ -278,6 +278,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Peach实战
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -287,6 +298,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装需知
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -312,6 +351,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装需知
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -328,63 +384,22 @@
   
 
 
-<h1 id="ro-be-continued">Ro Be Continued...</h1>
-<ul>
-<li>Note</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a note.</p>
-</div>
-<ul>
-<li>Tip</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>This is a tip.</p>
-</div>
-<ul>
-<li>Warning</li>
-</ul>
+<h1 id="peach">Peach小实验</h1>
+<h2 id="_1">安装需知</h2>
+<p>Peach支持直接运行二进制程序或从源码进行编译，但是由于依赖库更新的问题，从源码重新编译需要调整很多的设置。为了方便起见，我们在Windows平台采取直接运行二进制程序的方式进行本次实验。请遵循如下步骤，安装并测试Peach的可用性。</p>
+<ol>
+<li>在windows平台上克隆本次实验的实验仓库 <code>git clone https://github.com/Ch1ps-dot/peach101.git</code></li>
+<li>进入experiments文件夹，在该目录下打开终端，输入<code>.\peach.exe</code>观察是否输出流Peach的帮助信息内容。</li>
+<li>如果</li>
+</ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is a warning.</p>
+<p>如果出现类似如下报错：</p>
+<blockquote>
+<p>Peach.Core.PeachException: Error, could not load platform assembly 'Peach.Core.OS. Windows.dll'. The assembly is part of the Internet Security Zone and loading has been blocked.</p>
+</blockquote>
+<p>请在当前目录下找到报错对应的.dll文件，右键打开<strong>属性</strong>设置，在<strong>常规</strong>界面右下角勾选<strong>接触锁定</strong>。</p>
 </div>
-<ul>
-<li>Danger</li>
-</ul>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>This is a danger.</p>
-</div>
-<ul>
-<li>Success</li>
-</ul>
-<div class="admonition success">
-<p class="admonition-title">Success</p>
-<p>This is a success.</p>
-</div>
-<ul>
-<li>Info</li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>This is an info.</p>
-</div>
-<ul>
-<li>Quote</li>
-</ul>
-<div class="admonition quote">
-<p class="admonition-title">Quote</p>
-<p>This is a quote.</p>
-</div>
-<ul>
-<li>Question</li>
-</ul>
-<details class="question">
-<summary>What is the meaning of life, the universe, and everything?</summary>
-<p>42.</p>
-</details>
 
 
 
