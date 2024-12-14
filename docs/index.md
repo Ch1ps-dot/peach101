@@ -66,7 +66,7 @@ Pit文件本质上是一个[XML](https://www.runoob.com/xml/xml-intro.html)文�
 !!! info
     **XML速成**：XML是一种可拓展标记语言，它的基本功能就在于标记。XML文件由元素组成，每个元素都是由标签标记（类似于HTML），每个元素都可以有很多属性，元素之间可以相互嵌套。XML本质上是对数据的标记，如何处理这些数据需要由程序自己决定。Pit文件规范就是Peach自定义的针对XML文件的解析处理方法。
 
-Pit文件的基本框架结构如下，其中包含了根节点\<Peach>\</Peach>和它的三个子元素\<DataModel>\</DataModel>，\<StateModel>\</StateModel>，\<Agent>\</Agent>和\<Test>\</Test>。Peach节点指明了该文件为Pit脚本，是每个Pit脚本中必须包含的元素。
+Pit文件的基本框架结构如下，其中包含了根节点\<Peach>\</Peach>和它的三个子元素DataModel，StateModel>，Agent和Test。Peach节点指明了该文件为Pit脚本，是每个Pit脚本中必须包含的元素。
 
  ```xml
  <?xml version="1.0" encoding="utf-8"?>
