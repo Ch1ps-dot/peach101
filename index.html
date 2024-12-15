@@ -630,7 +630,7 @@
 <p class="admonition-title">Info</p>
 <p><strong>XML速成</strong>：XML是一种可拓展标记语言，它的基本功能就在于标记。XML文件由元素组成，每个元素都是由标签标记（类似于HTML），每个元素都可以有很多属性，元素之间可以相互嵌套。XML本质上是对数据的标记，如何处理这些数据需要由程序自己决定。Pit文件规范就是Peach自定义的针对XML文件的解析处理方法。</p>
 </div>
-<p>Pit文件的基本框架结构如下，其中包含了根节点\<Peach>\</Peach>和它的三个子元素DataModel，StateModel&gt;，Agent和Test。Peach节点指明了该文件为Pit脚本，是每个Pit脚本中必须包含的元素。</p>
+<p>Pit文件的基本框架结构如下，其中包含了根节点Peach和它的三个子元素DataModel，StateModel，Agent和Test。Peach节点指明了该文件为Pit脚本，是每个Pit脚本中必须包含的元素。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;Peach</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://peachfuzzer.com/2012/Peach&quot;</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
 <span class="w">    </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://peachfuzzer.com/2012/Peach ../peach.xsd&quot;</span><span class="nt">&gt;</span>
